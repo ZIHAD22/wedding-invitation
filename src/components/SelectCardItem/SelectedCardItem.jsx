@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import "./SelectedCardItem.css";
 
-const SelectedCardItem = ({ cardInfo: { name, img } }) => {
+const SelectedCardItem = ({ cardInfo: { name, img }, handleCardClear }) => {
   return (
     <div className="d-flex justify-content-around align-items-center mt-3">
       <div className="common">

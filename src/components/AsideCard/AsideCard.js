@@ -2,9 +2,14 @@ import React from 'react'
 import SelectedCardItem from '../SelectCardItem/SelectedCardItem'
 import './AsideCard.css'
 
-const AsideCard = ({ aSideCardsInfo }) => {
+const AsideCard = ({
+  aSideCardsInfo,
+  handleCardClear,
+  handleBetterChoose,
+  enableBtn,
+}) => {
   const isTrue = () => {
-    return Object.keys(aSideCardsInfo).length === 0 ? true : false
+    return aSideCardsInfo.length === 0 ? true : false
   }
   return (
     <div className="bg-white side-bar mt-3">
@@ -14,14 +19,21 @@ const AsideCard = ({ aSideCardsInfo }) => {
           <SelectedCardItem key={cardInfo.id} cardInfo={cardInfo} />
         ))
       ) : (
-        <h5>Please Select Wedding Card</h5>
+        <h5>Please Add To Card A Product</h5>
       )}
       <div className={!isTrue() ? 'mb-3 mt-3 d-block' : 'd-none'}>
-        <button className="btn btn-primary rounded">
+        <button
+          onClick={handleBetterChoose}
+          className="btn btn-primary rounded"
+          disabled={enableBtn}
+        >
           Choose Better For You
         </button>
       </div>
-      <div className={!isTrue() ? 'd-block' : 'd-none'}>
+      <div
+        className={!isTrue() ? 'd-block' : 'd-none'}
+        onClick={handleCardClear}
+      >
         <button className="btn btn-primary rounded">New Start</button>
       </div>
     </div>

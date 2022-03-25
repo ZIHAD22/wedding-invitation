@@ -5,6 +5,7 @@ import ItemCard from '../ItemCard/ItemCard'
 const Shop = () => {
   const [products, setProducts] = useState([])
   const [aSideCardsInfo, setAsideCardsInfo] = useState([])
+  const [isChoosed, setIschoosed] = useState(false)
 
   useEffect(() => {
     fetch('products.json')
@@ -14,12 +15,26 @@ const Shop = () => {
 
   const handleAddToCard = (productInfo) => {
     const isInCard = aSideCardsInfo.find((card) => card.id === productInfo.id)
-    if (!isInCard && aSideCardsInfo.length <= 3) {
+    if (!isInCard && aSideCardsInfo.length <= 3 && !isChoosed) {
       setAsideCardsInfo([...aSideCardsInfo, productInfo])
     } else {
       console.log('this is already on the card')
     }
   }
+
+  const handleCardClear = () => {
+    return aSideCardsInfo.length === 0
+      ? console.log('please Select then Clear')
+      : (setAsideCardsInfo([]), setIschoosed(false))
+  }
+
+  const handleBetterChoose = () => {
+    const randomIndex = Math.floor(Math.random() * aSideCardsInfo.length + 1)
+    const selectedItem = aSideCardsInfo[randomIndex]
+    setIschoosed(!isChoosed)
+    setAsideCardsInfo([selectedItem])
+  }
+
   useEffect(() => console.log(aSideCardsInfo), [aSideCardsInfo])
   return (
     <div className="container">
@@ -36,7 +51,12 @@ const Shop = () => {
           </div>
         </div>
         <div className="col-md-3 ">
-          <AsideCard aSideCardsInfo={aSideCardsInfo} />
+          <AsideCard
+            aSideCardsInfo={aSideCardsInfo}
+            handleCardClear={handleCardClear}
+            handleBetterChoose={handleBetterChoose}
+            enableBtn={isChoosed}
+          />
         </div>
       </div>
     </div>
