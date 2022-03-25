@@ -21,6 +21,7 @@ const AsideCard = ({
             key={cardInfo.id}
             cardInfo={cardInfo}
             handleCardDelete={handleCardDelete}
+            enableBtn={enableBtn}
           />
         ))
       ) : (
