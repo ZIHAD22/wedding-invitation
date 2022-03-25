@@ -35,6 +35,11 @@ const Shop = () => {
     setAsideCardsInfo([selectedItem])
   }
 
+  const handleCardDelete = (id) => {
+    const withOutDeletedItem = aSideCardsInfo.filter((card) => card.id !== id)
+    setAsideCardsInfo(withOutDeletedItem)
+  }
+
   useEffect(() => console.log(aSideCardsInfo), [aSideCardsInfo])
   return (
     <div className="container">
@@ -55,6 +60,7 @@ const Shop = () => {
             aSideCardsInfo={aSideCardsInfo}
             handleCardClear={handleCardClear}
             handleBetterChoose={handleBetterChoose}
+            handleCardDelete={handleCardDelete}
             enableBtn={isChoosed}
           />
         </div>

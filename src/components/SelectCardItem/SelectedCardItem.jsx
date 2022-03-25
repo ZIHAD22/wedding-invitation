@@ -3,7 +3,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import "./SelectedCardItem.css";
 
-const SelectedCardItem = ({ cardInfo: { name, img }, handleCardClear }) => {
+const SelectedCardItem = ({
+  cardInfo: { name, img, id },
+  handleCardDelete,
+}) => {
   return (
     <div className="d-flex justify-content-around align-items-center mt-3">
       <div className="common">
@@ -12,7 +15,7 @@ const SelectedCardItem = ({ cardInfo: { name, img }, handleCardClear }) => {
       <div>
         <h5>{name}</h5>
       </div>
-      <div className="common">
+      <div className="common" onClick={() => handleCardDelete(id)}>
         <FontAwesomeIcon icon={faTrash} fontSize={"20px"} />
       </div>
     </div>

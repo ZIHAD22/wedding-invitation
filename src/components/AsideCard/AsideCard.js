@@ -6,6 +6,7 @@ const AsideCard = ({
   aSideCardsInfo,
   handleCardClear,
   handleBetterChoose,
+  handleCardDelete,
   enableBtn,
 }) => {
   const isTrue = () => {
@@ -16,7 +17,11 @@ const AsideCard = ({
       {isTrue() ? '' : <h3>Selected Card Design</h3>}
       {!isTrue() ? (
         aSideCardsInfo.map((cardInfo) => (
-          <SelectedCardItem key={cardInfo.id} cardInfo={cardInfo} />
+          <SelectedCardItem
+            key={cardInfo.id}
+            cardInfo={cardInfo}
+            handleCardDelete={handleCardDelete}
+          />
         ))
       ) : (
         <h5>Please Add To Card A Product</h5>
