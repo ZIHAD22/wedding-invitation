@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Wedding Card Shop
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ [live Website link](https://wedding-cards-shop.netlify.app/).
 
 ## Available Scripts
 
