@@ -1,4 +1,5 @@
 import React from 'react'
+import QuestionAccordion from '../QuestionAccordion/QuestionAccordion'
 import SelectedCardItem from '../SelectCardItem/SelectedCardItem'
 import './AsideCard.css'
 
@@ -40,6 +41,10 @@ const AsideCard = ({
         <button onClick={handleCardClear} className="btn btn-primary rounded">
           New Start
         </button>
+      </div>
+      <div className="container question">
+        <h5 className="text-center">Question Answer</h5>
+        <QuestionAccordion />
       </div>
     </div>
   )
