@@ -29,7 +29,8 @@ const Shop = () => {
   }
 
   const handleBetterChoose = () => {
-    const randomIndex = Math.floor(Math.random() * aSideCardsInfo.length + 1)
+    const randomIndex = Math.floor(Math.random() * aSideCardsInfo.length)
+    console.log(randomIndex)
     const selectedItem = aSideCardsInfo[randomIndex]
     setIschoosed(!isChoosed)
     setAsideCardsInfo([selectedItem])
