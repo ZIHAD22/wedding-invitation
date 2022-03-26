@@ -14,7 +14,7 @@ const QuestionAccordion = () => {
             aria-expanded="false"
             aria-controls="flush-collapseOne"
           >
-            Accordion Item #1
+            React কিভাবে কাজ
           </button>
         </h2>
         <div
@@ -24,9 +24,17 @@ const QuestionAccordion = () => {
           data-bs-parent="#accordionFlushExample"
         >
           <div className="accordion-body">
-            Placeholder content for this accordion, which is intended to
-            demonstrate the <code>.accordion-flush</code> className. This is the
-            first item's accordion body.
+            React declarative way তে কাজ করে। এর মানে বুঝাতে হলে আপনাকে আমি বলব
+            যে আপনি একটা আধুনিক ওয়েব Application এর কথা চিন্তা করতে বলি তাহলে
+            আপনার মাথাই আসবে যে ওয়েবসাইট এর একটা Header tag আছে। যেখানে nav bar
+            এবং অনন্য জিনিস থাকবে। তারপর main tag যেখানে website এর main content
+            থাকবে। এই রকম footer tag থাকবে। কিন্তু React declarative way টা কি ?
+            declarative way টা হলো ঐ যে header tag টা কে react এ একটা component
+            হিসেবে তৈরি করা হয়। এবং পরে ঐই তাকে Header component হিসেবে ব্যবহার
+            করা হয় এই ভাবে{" <Header /> "}।এই রকম ভাবে {"<Main/> "} ও{" "}
+            {"<Footer/> "} component গুলোর ফলে কোড গুলো যে কেও দেখলে বুঝা টা
+            অনেক সহজ হয়। React declarative way তে কোন কোড দেখে ঐ কোড শেষ ফলাফল
+            বর্ণনা এবং code refactor করা টাও সহজ হয়।
           </div>
         </div>
       </div>
