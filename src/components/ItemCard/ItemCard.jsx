@@ -5,6 +5,7 @@ const ItemCard = (props) => {
   const {
     product: { img, name, price },
     handleAddToCard,
+    modalShow,
   } = props;
   return (
     <div className="col-md-4">

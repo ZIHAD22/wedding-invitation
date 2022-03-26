@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import AsideCard from '../AsideCard/AsideCard'
 import ItemCard from '../ItemCard/ItemCard'
+import WarningModal from '../WarningModal/WarningModal'
 
 const Shop = () => {
   const [products, setProducts] = useState([])
   const [aSideCardsInfo, setAsideCardsInfo] = useState([])
   const [isChoosed, setIschoosed] = useState(false)
+  const [isModalShow, setModalIsShow] = useState({ isShow: false })
 
   useEffect(() => {
     fetch('products.json')
@@ -18,8 +20,23 @@ const Shop = () => {
     if (!isInCard && aSideCardsInfo.length <= 3 && !isChoosed) {
       setAsideCardsInfo([...aSideCardsInfo, productInfo])
     } else {
-      console.log('this is already on the card')
+      if (isInCard) {
+        const modalText = 'This is already on the card'
+        handleWarningModal(modalText, true)
+      }
+      if (aSideCardsInfo.length === 4) {
+        const modalText = 'You Can Only Add 4 item On card'
+        handleWarningModal(modalText, true)
+      }
     }
+  }
+
+  const handleWarningModal = (modalText, isShow = false) => {
+    const modalObj = {
+      isShow: isShow ? true : false,
+      modalText: modalText,
+    }
+    setModalIsShow(modalObj)
   }
 
   const handleCardClear = () => {
@@ -39,11 +56,14 @@ const Shop = () => {
   const handleCardDelete = (id) => {
     const withOutDeletedItem = aSideCardsInfo.filter((card) => card.id !== id)
     setAsideCardsInfo(withOutDeletedItem)
+    if (isModalShow.isShow) {
+      handleWarningModal()
+    }
   }
 
   useEffect(() => console.log(aSideCardsInfo), [aSideCardsInfo])
   return (
-    <div className="container">
+    <div className="container position-relative">
       <div className="row g-0">
         <div className="col-md-9">
           <div className="row g-0 pt-3">
@@ -52,6 +72,7 @@ const Shop = () => {
                 key={product.id}
                 product={product}
                 handleAddToCard={handleAddToCard}
+                modalShow={isModalShow.isShow}
               />
             ))}
           </div>
@@ -66,6 +87,14 @@ const Shop = () => {
           />
         </div>
       </div>
+      {isModalShow.isShow ? (
+        <WarningModal
+          modalInfo={isModalShow}
+          handleWarningModal={handleWarningModal}
+        />
+      ) : (
+        ''
+      )}
     </div>
   )
 }

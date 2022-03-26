@@ -36,11 +36,10 @@ const AsideCard = ({
           Choose Better For You
         </button>
       </div>
-      <div
-        className={!isTrue() ? 'd-block' : 'd-none'}
-        onClick={handleCardClear}
-      >
-        <button className="btn btn-primary rounded">New Start</button>
+      <div className={!isTrue() ? 'd-block' : 'd-none'}>
+        <button onClick={handleCardClear} className="btn btn-primary rounded">
+          New Start
+        </button>
       </div>
     </div>
   )
