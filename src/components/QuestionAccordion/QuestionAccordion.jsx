@@ -14,7 +14,7 @@ const QuestionAccordion = () => {
             aria-expanded="false"
             aria-controls="flush-collapseOne"
           >
-            React কিভাবে কাজ
+            01. React কিভাবে কাজ
           </button>
         </h2>
         <div
@@ -48,7 +48,7 @@ const QuestionAccordion = () => {
             aria-expanded="false"
             aria-controls="flush-collapseTwo"
           >
-            Accordion Item #2
+            02. Props vs State
           </button>
         </h2>
         <div
@@ -58,39 +58,29 @@ const QuestionAccordion = () => {
           data-bs-parent="#accordionFlushExample"
         >
           <div className="accordion-body">
-            Placeholder content for this accordion, which is intended to
-            demonstrate the <code>.accordion-flush</code> className. This is the
-            second item's accordion body. Let's imagine this being filled with
-            some actual content.
-          </div>
-        </div>
-      </div>
-      <div className="accordion-item">
-        <h2 className="accordion-header" id="flush-headingThree">
-          <button
-            className="accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#flush-collapseThree"
-            aria-expanded="false"
-            aria-controls="flush-collapseThree"
-          >
-            Accordion Item #3
-          </button>
-        </h2>
-        <div
-          id="flush-collapseThree"
-          className="accordion-collapse collapse"
-          aria-labelledby="flush-headingThree"
-          data-bs-parent="#accordionFlushExample"
-        >
-          <div className="accordion-body">
-            Placeholder content for this accordion, which is intended to
-            demonstrate the <code>.accordion-flush</code> className. This is the
-            third item's accordion body. Nothing more exciting happening here in
-            terms of content, but just filling up the space to make it look, at
-            least at first glance, a bit more representative of how this would
-            look in a real-world application.
+            <strong>01.Props</strong> <br />
+            i. Props হলো React এর এমন একটা propertie যেটার মাধ্যমে একটা Parent
+            component থেকে Child component এ data পাঠানো যাই
+            <br />
+            <br />
+            ii. Props অপরিবর্তনীয় (পরিবর্তন করা যাবে না)।শুধুমাত্র পাঠযোগ্য
+            <br />
+            <br />
+            iii. Props class component ও functional component এবং state এর সাথে
+            ব্যবহার করা যেতে পারে
+            <br />
+            <br />
+            <strong>02.State</strong> <br />
+            i. State একটি অ্যাপ্লিকেশনের ঐ অংশগুলিকে প্রতিনিধিত্ব করে যা
+            পরিবর্তন হতে পারে
+            <br />
+            <br />
+            ii. State এটি পরিবর্তনযোগ্য (পরিবর্তন করা যেতে পারে)। এবং প্রতিটি
+            component তার নিজেস্ব State থাকতে পারে।
+            <br />
+            <br />
+            iii. State class component ও functional component এর সাথে ব্যবহার
+            করা যায়
           </div>
         </div>
       </div>
